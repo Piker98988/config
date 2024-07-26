@@ -1,0 +1,23 @@
+# yazi.toml
+[manager]
+ratio = [10, 60, 30]
+sort_by = "natural"
+sort_sensitive = true
+sort_reverse = false
+sort_dir_first = true
+linemode = "size"
+show_hidden = true
+show_symlink = true
+
+[preview]
+image_filter = "triangle"
+image_quality = 50
+
+[opener]
+edit = [
+	{run = "micro $@", block = true},
+]
+
+[tasks]
+bizarre_retry = 20
+

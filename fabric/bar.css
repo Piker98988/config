@@ -1,0 +1,178 @@
+/* uncomment if you do have pywal configured */
+/* @import url("/home/USER/.cache/wal/colors-widgets.css"); */
+
+:vars {
+    --background: #0f0014;
+    --foreground: #7366FF;
+    --color0: #260033;      /*30m   */
+    --color1: #A91B6C;      /*31m   */
+    --color2: #702c91;      /*32m   */
+    --color3: #372388;      /*33m   */
+    --color4: #1D1389;      /*34m   */
+    --color5: #21023F;      /*35m   */
+    --color6: #210169;      /*36m   */
+    --color7: #a83175;      /*37m   */
+    --color8: #3d0052;      /*1;30m */
+    --color9: #d62289;      /*1;31m */
+    --color10: #9239bd;     /*1;32m */
+    --color11: #482eb0;     /*1;33m */
+    --color12: #2619b3;     /*1;34m */
+    --color13: #360466;     /*1;35m */
+    --color14: #2e0191;     /*1;36m */
+    --color15: #e0419c;     /*1;37m */
+    --window-bg: alpha(var(--background), 0.6);
+    --module-bg: alpha(var(--background), 0.4);
+    --border-color: var(--color13);
+    --ws-active: var(--color9);
+    --ws-inactive: var(--color3);
+    --ws-empty: var(--color8);
+    --ws-hover: var(--color1);
+    --ws-urgent: var(--color11);
+}
+
+* {
+    /* unsets everything so we can style everything from scratch. */
+    all: unset;
+    font-family: "Nunito";
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--foreground);
+    /* we can use webcss variables, fabric compiles that to gtk css. */
+}
+
+#main-window {
+    border: solid 6px;
+    border-color: alpha(var(--border-color), 0.75);
+    background-color: var(--window-bg);
+    border-radius: 14px;
+}
+
+button {
+    border-radius: 25px;
+    background-size: 400% 400%;
+}
+
+#workspaces {
+    margin: 3px;
+    padding: 6px;
+    background-color: var(--module-bg);
+    border-radius: 25px;
+}
+
+#workspaces > button {
+    padding: 0px 12px;
+	border-radius: 1px;
+    /* transition: min-width 0.15s cubic-bezier(0.2, 0.0, 0, 1.0); */
+    transition: min-width 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: var(--ws-inactive);
+	
+}
+
+#workspaces > button > label {
+    color: #30303e;
+}
+
+#workspaces > button.active {
+    min-width: 48px;
+    background-color: var(--ws-active);
+}
+
+#workspaces > button.active > label {
+    font-weight: 900;
+    color: #bec0f8;
+}
+
+#workspaces > button.empty {
+    background-color: var(--ws-empty);
+}
+
+#workspaces > button.urgent {
+    background-color: var(--ws-urgent);
+}
+
+#workspaces > button:hover {
+    background-color: var(--ws-hover);
+}
+
+#date-time,
+#hyprland-language,
+#hyprland-window {
+    background-color: var(--module-bg);
+    padding: 0px 8px;
+    margin: 5px;
+	border-radius: 7px;
+	border: solid 0px;
+	border-color: var(--border-color);
+}
+
+#Mode > label,
+#date-time > label,
+menu > menuitem > label,
+#hyprland-language > label,
+#hyprland-window > label {
+    font-weight: 900;
+}
+
+#center-box {
+	border-radius: 1px;
+    margin: 1px;
+}
+
+/* system tray */
+
+#system-tray {
+    margin: 3px;
+    padding: 0px 2px;
+    background-color: var(--module-bg);
+    border-radius: 100px;
+}
+
+#system-tray > button {
+    padding: 0px 2px;
+    margin: 3px;
+}
+
+/* menu and menu items (written for the system tray) */
+
+menu {
+    border: solid 2px;
+    border-color: var(--border-color);
+    border-radius: 10px;
+}
+
+menu > menuitem {
+    background-color: var(--module-bg);
+    padding: 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+menu > menuitem:first-child {
+    margin-top: 1.5px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+menu > menuitem:last-child {
+    margin-bottom: 1.5px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+menu > menuitem:hover {
+    background-color: var(--border-color);
+}
+
+#volume-circular-progress-bar,
+#ram-circular-progress-bar {
+    border: solid 10px var(--border-color);
+}
+
+#cpu-circular-progress-bar {
+    border: solid 0px alpha(var(--color9), 0.8);
+}
+
+#widgets-container {
+    border-radius: 100px;
+    background-color: var(--module-bg);
+    padding: 3px;
+    margin: 3px;
+}
